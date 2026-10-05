@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ForestIQ</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(0,255,200,.08), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(120,70,255,.10), transparent 30%),
+        #050810;
+    color: #f4f7ff;
+    min-height: 100vh;
+}
+
+/* ================= HEADER ================= */
+
+.header {
+    margin: 18px;
+    padding: 25px 30px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(20,31,50,.95),
+            rgba(8,12,24,.95)
+        );
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.35),
+        inset 0 1px rgba(255,255,255,.05);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.logo {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 34px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,255,190,.15),
+            rgba(0,120,255,.10)
+        );
+
+    border: 1px solid rgba(0,255,200,.30);
+
+    box-shadow:
+        0 0 30px rgba(0,255,200,.12);
+}
+
+.brand h1 {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.brand p {
+    color: #77839d;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-top: 5px;
+}
+
+.api-status {
+    padding: 12px 20px;
+    border-radius: 30px;
+
+    border: 1px solid rgba(0,255,180,.25);
+
+    color: #39ffc1;
+
+    background: rgba(0,255,180,.05);
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.api-status.offline {
+    color: #ff5368;
+    border-color: rgba(255,50,80,.3);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    margin: 35px 18px 20px;
+
+    padding: 45px;
+
+    border-radius: 30px;
+
+    background:
+        radial-gradient(circle at 90% 30%, rgba(0,220,255,.12), transparent 30%),
+        linear-gradient(135deg,#10192c,#080c17);
+
+    border: 1px solid rgba(255,255,255,.09);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.hero small {
+    color: #20e6ff;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+.hero h2 {
+    margin-top: 20px;
+
+    font-size: clamp(42px,5vw,72px);
+
+    line-height: 1.02;
+
+    max-width: 900px;
+
+    font-weight: 900;
+    letter-spacing: -3px;
+}
+
+.gradient {
+    background: linear-gradient(
+        90deg,
+        #20e6ff,
+        #6b7cff,
+        #c96cff
+    );
+
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    margin-top: 22px;
+
+    color: #8d99b1;
+
+    font-size: 16px;
+    line-height: 1.7;
+
+    max-width: 850px;
+}
+
+/* ================= STATS ================= */
+
+.stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap: 16px;
+
+    margin: 18px;
+}
+
+.stat {
+    padding: 24px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18,25,42,.95),
+            rgba(8,12,23,.95)
+        );
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    transition: .3s;
+}
+
+.stat:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(0,230,255,.3);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.3);
+}
+
+.stat-label {
+    font-size: 11px;
+    color: #7d8aa4;
+
+    letter-spacing: 1.5px;
+    font-weight: 800;
+}
+
+.stat-value {
+    margin-top: 12px;
+
+    font-size: 30px;
+
+    font-weight: 900;
+}
+
+.stat-sub {
+    margin-top: 8px;
+
+    font-size: 10px;
+
+    color: #64718a;
+}
+
+/* ================= MAIN GRID ================= */
+
+.main-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.15fr .85fr;
+
+    gap: 20px;
+
+    margin: 20px 18px;
+}
+
+.panel {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15,22,38,.97),
+            rgba(7,11,22,.97)
+        );
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 28px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.25);
+}
+
+.panel-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 28px;
+}
+
+.panel-title h3 {
+    font-size: 19px;
+}
+
+.panel-title span {
+    color: #65738c;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+/* ================= INPUTS ================= */
+
+.input-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 20px;
+}
+
+.input-group label {
+    display: block;
+
+    color: #8996ae;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 9px;
+}
+
+.input-group input {
+    width: 100%;
+
+    padding: 16px;
+
+    border-radius: 14px;
+
+    border: 1px solid #26334c;
+
+    outline: none;
+
+    background: #0c1424;
+
+    color: white;
+
+    font-size: 16px;
+
+    transition: .25s;
+}
+
+.input-group input:focus {
+    border-color: #16dfff;
+
+    box-shadow:
+        0 0 0 3px rgba(22,223,255,.08),
+        0 0 25px rgba(22,223,255,.08);
+}
+
+/* ================= BUTTON ================= */
+
+.analyze {
+    width: 100%;
+
+    margin-top: 28px;
+
+    padding: 18px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    letter-spacing: .5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff5b00,
+            #ff274f,
+            #8d43ff
+        );
+
+    box-shadow:
+        0 10px 35px rgba(255,50,50,.20);
+
+    transition: .3s;
+}
+
+.analyze:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 45px rgba(255,50,50,.35);
+}
+
+.analyze:active {
+    transform: scale(.98);
+}
+
+/* ================= RESULT ================= */
+
+.result {
+    min-height: 390px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+.fire-icon {
+    width: 125px;
+    height: 125px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 60px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,90,20,.30),
+            rgba(255,30,60,.05)
+        );
+
+    border: 1px solid rgba(255,100,50,.25);
+
+    box-shadow:
+        0 0 60px rgba(255,70,30,.18);
+
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,100% {
+        transform: scale(1);
+        box-shadow: 0 0 40px rgba(255,70,30,.15);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 70px rgba(255,70,30,.30);
+    }
+}
+
+.risk {
+    margin-top: 25px;
+
+    font-size: 56px;
+
+    font-weight: 900;
+
+    letter-spacing: -2px;
+}
+
+.risk.low {
+    color: #35e69b;
+}
+
+.risk.medium {
+    color: #ffd34d;
+}
+
+.risk.high {
+    color: #ff873d;
+}
+
+.risk.very-high {
+    color: #ff304e;
+}
+
+.probability {
+    margin-top: 10px;
+
+    font-size: 20px;
+
+    color: #d7dcea;
+}
+
+.result-meta {
+    margin-top: 24px;
+
+    padding: 15px 25px;
+
+    width: 90%;
+
+    border-radius: 15px;
+
+    background: #0d1525;
+
+    color: #8f9bb2;
+}
+
+/* ================= TELEMETRY ================= */
+
+.telemetry {
+    display: grid;
+
+    gap: 14px;
+}
+
+.telemetry-item {
+    padding: 19px;
+
+    border-radius: 16px;
+
+    background: #0c1423;
+
+    border: 1px solid rgba(255,255,255,.06);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.telemetry-item small {
+    color: #77849d;
+}
+
+.online {
+    color: #30f5a5;
+
+    font-weight: 900;
+}
+
+.active {
+    color: #20dcff;
+
+    font-weight: 900;
+}
+
+/* ================= LIVE ACTIVITY ================= */
+
+.activity {
+    margin: 20px 18px;
+
+    padding: 30px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15,22,38,.97),
+            rgba(7,11,22,.97)
+        );
+
+    border: 1px solid rgba(255,255,255,.08);
+}
+
+.activity-list {
+    margin-top: 20px;
+
+    max-height: 300px;
+
+    overflow-y: auto;
+}
+
+.activity-row {
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr 1fr;
+
+    padding: 15px;
+
+    border-bottom: 1px solid rgba(255,255,255,.05);
+
+    font-size: 13px;
+
+    color: #a7b1c5;
+}
+
+.activity-row:first-child {
+    color: white;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+
+    padding: 35px;
+
+    color: #536079;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px) {
+
+    .stats {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .main-grid {
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:650px) {
+
+    .header {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .stats {
+        grid-template-columns:1fr;
+    }
+
+    .input-grid {
+        grid-template-columns:1fr;
+    }
+
+    .hero {
+        padding: 30px;
+    }
+
+    .hero h2 {
+        font-size: 42px;
+    }
+
+    .activity-row {
+        grid-template-columns:1fr 1fr;
+        gap: 10px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="brand">
+
+        <div class="logo">
+            🌲
+        </div>
+
+        <div>
+            <h1>ForestIQ</h1>
+
+            <p>
+                AI-POWERED WILDFIRE RISK INTELLIGENCE
+            </p>
+        </div>
+
+    </div>
+
+    <div
+        id="apiStatus"
+        class="api-status"
+    >
+        ● API CONNECTING
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <small>
+        FOREST INTELLIGENCE NETWORK
+    </small>
+
+    <h2>
+        Predict risk.
+        <span class="gradient">
+            Detect fire.
+        </span>
+        <br>
+        Monitor continuously.
+    </h2>
+
+    <p>
+        ForestIQ combines Random Forest and XGBoost
+        machine-learning models to analyse environmental
+        conditions and estimate wildfire risk in real time.
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     STAT CARDS
+===================================================== -->
+
+<section class="stats">
+
+    <div class="stat">
+        <div class="stat-label">
+            TOTAL PREDICTIONS
+        </div>
+
+        <div
+            class="stat-value"
+            id="totalPredictions"
+        >
+            0
+        </div>
+
+        <div class="stat-sub">
+            LIVE INFERENCE COUNT
+        </div>
+    </div>
+
+
+    <div class="stat">
+        <div class="stat-label">
+            FIRE DETECTIONS
+        </div>
+
+        <div
+            class="stat-value"
+            id="firePredictions"
+        >
+            0
+        </div>
+
+        <div class="stat-sub">
+            MODEL CLASSIFIED FIRE
+        </div>
+    </div>
+
+
+    <div class="stat">
+        <div class="stat-label">
+            SAFE PREDICTIONS
+        </div>
+
+        <div
+            class="stat-value"
+            id="safePredictions"
+        >
+            0
+        </div>
+
+        <div class="stat-sub">
+            NO FIRE CLASSIFICATION
+        </div>
+    </div>
+
+
+    <div class="stat">
+        <div class="stat-label">
+            MODEL AGREEMENT
+        </div>
+
+        <div
+            class="stat-value"
+            id="agreement"
+        >
+            0%
+        </div>
+
+        <div class="stat-sub">
+            RF + XGBOOST
+        </div>
+    </div>
+
+
+    <div class="stat">
+        <div class="stat-label">
+            AVG LATENCY
+        </div>
+
+        <div
+            class="stat-value"
+            id="latency"
+        >
+            0 ms
+        </div>
+
+        <div class="stat-sub">
+            INFERENCE RESPONSE
+        </div>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<section class="main-grid">
+
+
+<!-- =====================================================
+     ENVIRONMENTAL INPUTS
+===================================================== -->
+
+<div class="panel">
+
+    <div class="panel-title">
+
+        <h3>
+            🌡️ Environmental Conditions
+        </h3>
+
+        <span>
+            LIVE INPUT
+        </span>
+
+    </div>
+
+
+    <div class="input-grid">
+
+        <div class="input-group">
+            <label>
+                TEMPERATURE °C
+            </label>
+
+            <input
+                id="Temperature"
+                type="number"
+                step="0.1"
+                value="35"
+            >
+        </div>
+
+
+        <div class="input-group">
+            <label>
+                RELATIVE HUMIDITY %
+            </label>
+
+            <input
+                id="RH"
+                type="number"
+                step="0.1"
+                value="30"
+            >
+        </div>
+
+
+        <div class="input-group">
+            <label>
+                WIND SPEED KM/H
+            </label>
+
+            <input
+                id="Ws"
+                type="number"
+                step="0.1"
+                value="15"
+            >
+        </div>
+
+
+        <div class="input-group">
+            <label>
+                RAIN MM
+            </label>
+
+            <input
+                id="Rain"
+                type="number"
+                step="0.1"
+                value="0"
+            >
+        </div>
+
+
+        <div class="input-group">
+            <label>
+                FFMC
+            </label>
+
+            <input
+                id="FFMC"
+                type="number"
+                step="0.1"
+                value="85"
+            >
+        </div>
+
+
+        <div class="input-group">
+            <label>
+                DMC
+            </label>
+
+            <input
+                id="DMC"
+                type="number"
+                step="0.1"
+                value="25"
+            >
+        </div>
+
+
+        <div class="input-group">
+            <label>
+                DC
+            </label>
+
+            <input
+                id="DC"
+                type="number"
+                step="0.1"
+                value="100"
+            >
+        </div>
+
+
+        <div class="input-group">
+            <label>
+                ISI
+            </label>
+
+            <input
+                id="ISI"
+                type="number"
+                step="0.1"
+                value="8"
+            >
+        </div>
+
+
+        <div class="input-group">
+            <label>
+                BUI
+            </label>
+
+            <input
+                id="BUI"
+                type="number"
+                step="0.1"
+                value="30"
+            >
+        </div>
+
+    </div>
+
+
+    <button
+        class="analyze"
+        onclick="analyzeFireRisk()"
+    >
+        🔥 ANALYZE FIRE RISK
+    </button>
+
+</div>
+
+
+<!-- =====================================================
+     AI RESULT
+===================================================== -->
+
+<div class="panel">
+
+    <div class="panel-title">
+
+        <h3>
+            🤖 AI Prediction
+        </h3>
+
+        <span>
+            XGBOOST + RANDOM FOREST
+        </span>
+
+    </div>
+
+
+    <div class="result">
+
+        <div class="fire-icon">
+            🔥
+        </div>
+
+
+        <div
+            id="riskLevel"
+            class="risk"
+        >
+            WAITING
+        </div>
+
+
+        <div
+            id="probability"
+            class="probability"
+        >
+            Fire Probability: 0%
+        </div>
+
+
+        <div
+            id="resultMeta"
+            class="result-meta"
+        >
+            Enter environmental values and analyze.
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TELEMETRY
+===================================================== -->
+
+<section class="main-grid">
+
+
+<div class="panel">
+
+    <div class="panel-title">
+
+        <h3>
+            ⚡ Live AI Analysis
+        </h3>
+
+        <span>
+            REAL-TIME
+        </span>
+
+    </div>
+
+
+    <div class="telemetry">
+
+        <div class="telemetry-item">
+
+            <div>
+                <strong>
+                    Random Forest
+                </strong>
+
+                <br>
+
+                <small>
+                    ENSEMBLE CLASSIFIER
+                </small>
+            </div>
+
+            <strong id="rfProbability">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="telemetry-item">
+
+            <div>
+                <strong>
+                    XGBoost
+                </strong>
+
+                <br>
+
+                <small>
+                    GRADIENT BOOSTING
+                </small>
+            </div>
+
+            <strong id="xgbProbability">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="telemetry-item">
+
+            <div>
+                <strong>
+                    Last Updated
+                </strong>
+
+                <br>
+
+                <small>
+                    TELEMETRY
+                </small>
+            </div>
+
+            <strong id="lastUpdated">
+                —
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="activityList"
+        style="
+            margin-top:25px;
+            color:#64718a;
+            text-align:center;
+        "
+    >
+        Waiting for live predictions...
+    </div>
+
+</div>
+
+
+<div class="panel">
+
+    <div class="panel-title">
+
+        <h3>
+            📡 System Telemetry
+        </h3>
+
+        <span>
+            FORESTIQ CORE
+        </span>
+
+    </div>
+
+
+    <div class="telemetry">
+
+        <div class="telemetry-item">
+
+            <div>
+                <strong>
+                    Prediction Engine
+                </strong>
+
+                <br>
+
+                <small>
+                    XGBOOST
+                </small>
+            </div>
+
+            <strong
+                id="engineStatus"
+                class="online"
+            >
+                ONLINE
+            </strong>
+
+        </div>
+
+
+        <div class="telemetry-item">
+
+            <div>
+                <strong>
+                    Ensemble Validator
+                </strong>
+
+                <br>
+
+                <small>
+                    RANDOM FOREST
+                </small>
+            </div>
+
+            <strong
+                id="validatorStatus"
+                class="online"
+            >
+                ONLINE
+            </strong>
+
+        </div>
+
+
+        <div class="telemetry-item">
+
+            <div>
+                <strong>
+                    REST API
+                </strong>
+
+                <br>
+
+                <small>
+                    FASTAPI
+                </small>
+            </div>
+
+            <strong
+                id="restStatus"
+                class="active"
+            >
+                ACTIVE
+            </strong>
+
+        </div>
+
+
+        <div class="telemetry-item">
+
+            <div>
+                <strong>
+                    Monitoring
+                </strong>
+
+                <br>
+
+                <small>
+                    LIVE LOG STREAM
+                </small>
+            </div>
+
+            <strong
+                id="monitorStatus"
+                class="active"
+            >
+                ACTIVE
+            </strong>
+
+        </div>
+
+
+        <div class="telemetry-item">
+
+            <div>
+                <strong>
+                    Telemetry Interval
+                </strong>
+
+                <br>
+
+                <small>
+                    DASHBOARD REFRESH
+                </small>
+            </div>
+
+            <strong>
+                2s
+            </strong>
+
+        </div>
+
+
+        <div
+            style="
+                margin-top:10px;
+                padding:25px;
+                border-radius:20px;
+                background:linear-gradient(
+                    135deg,
+                    rgba(0,220,255,.07),
+                    rgba(0,255,180,.04)
+                );
+                border:1px solid rgba(0,220,255,.15);
+            "
+        >
+
+            <small
+                style="
+                    color:#728099;
+                    letter-spacing:2px;
+                "
+            >
+                LAST TELEMETRY UPDATE
+            </small>
+
+            <h2
+                id="telemetryTime"
+                style="
+                    margin-top:10px;
+                    font-size:28px;
+                "
+            >
+                —
+            </h2>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+    FORESTIQ • AI-POWERED WILDFIRE RISK INTELLIGENCE
+    • RANDOM FOREST + XGBOOST
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+const API_URL = "http://127.0.0.1:8000";
+
+
+/* =====================================================
+   API STATUS
+===================================================== */
+
+async function checkAPI() {
+
+    const status =
+        document.getElementById("apiStatus");
+
+    try {
+
+        const response =
+            await fetch(
+                API_URL + "/health"
+            );
+
+        if (!response.ok)
+            throw new Error();
+
+        status.innerHTML =
+            "● API ONLINE";
+
+        status.classList.remove(
+            "offline"
+        );
+
+    } catch {
+
+        status.innerHTML =
+            "● API OFFLINE";
+
+        status.classList.add(
+            "offline"
+        );
+    }
+}
+
+
+/* =====================================================
+   GET INPUT DATA
+===================================================== */
+
+function getInputData() {
+
+    return {
+
+        Temperature:
+            Number(
+                document.getElementById(
+                    "Temperature"
+                ).value
+            ),
+
+        RH:
+            Number(
+                document.getElementById(
+                    "RH"
+                ).value
+            ),
+
+        Ws:
+            Number(
+                document.getElementById(
+                    "Ws"
+                ).value
+            ),
+
+        Rain:
+            Number(
+                document.getElementById(
+                    "Rain"
+                ).value
+            ),
+
+        FFMC:
+            Number(
+                document.getElementById(
+                    "FFMC"
+                ).value
+            ),
+
+        DMC:
+            Number(
+                document.getElementById(
+                    "DMC"
+                ).value
+            ),
+
+        DC:
+            Number(
+                document.getElementById(
+                    "DC"
+                ).value
+            ),
+
+        ISI:
+            Number(
+                document.getElementById(
+                    "ISI"
+                ).value
+            ),
+
+        BUI:
+            Number(
+                document.getElementById(
+                    "BUI"
+                ).value
+            )
+    };
+}
+
+
+/* =====================================================
+   ANALYZE
+===================================================== */
+
+async function analyzeFireRisk() {
+
+    const button =
+        document.querySelector(
+            ".analyze"
+        );
+
+    button.innerHTML =
+        "⏳ ANALYZING...";
+
+    button.disabled = true;
+
+
+    try {
+
+        const data =
+            getInputData();
+
+
+        const response =
+            await fetch(
+                API_URL + "/predict",
+                {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify(data)
+                }
+            );
+
+
+        if (!response.ok) {
+
+            const error =
+                await response.text();
+
+            throw new Error(error);
+        }
+
+
+        const result =
+            await response.json();
+
+
+        updateDashboard(result);
+
+    }
+
+    catch(error) {
+
+        console.error(error);
+
+        document.getElementById(
+            "riskLevel"
+        ).innerText =
+            "API ERROR";
+
+        document.getElementById(
+            "resultMeta"
+        ).innerText =
+            "Could not connect to FastAPI.";
+
+        document.getElementById(
+            "apiStatus"
+        ).innerText =
+            "● API ERROR";
+
+    }
+
+    finally {
+
+        button.innerHTML =
+            "🔥 ANALYZE FIRE RISK";
+
+        button.disabled = false;
+    }
+}
+
+
+/* =====================================================
+   UPDATE DASHBOARD AFTER PREDICTION
+===================================================== */
+
+function updateDashboard(data) {
+
+    const risk =
+        document.getElementById(
+            "riskLevel"
+        );
+
+    risk.innerText =
+        data.risk_level;
+
+
+    risk.className =
+        "risk " +
+        data.risk_level
+            .toLowerCase()
+            .replace(" ", "-");
+
+
+    document.getElementById(
+        "probability"
+    ).innerText =
+        "🔥 Fire Probability: " +
+        data.fire_probability_percent +
+        "%";
+
+
+    document.getElementById(
+        "resultMeta"
+    ).innerText =
+        data.result +
+        "  •  " +
+        data.model +
+        "  •  " +
+        data.latency_ms +
+        " ms";
+
+
+    /* RF */
+
+    if (data.models &&
+        data.models.random_forest) {
+
+        document.getElementById(
+            "rfProbability"
+        ).innerText =
+            data.models.random_forest
+                .fire_probability_percent +
+            "%";
+    }
+
+
+    /* XGBoost */
+
+    if (data.models &&
+        data.models.xgboost) {
+
+        document.getElementById(
+            "xgbProbability"
+        ).innerText =
+            data.models.xgboost
+                .fire_probability_percent +
+            "%";
+    }
+
+
+    document.getElementById(
+        "lastUpdated"
+    ).innerText =
+        new Date().toLocaleTimeString();
+
+
+    addActivity(data);
+}
+
+
+/* =====================================================
+   LIVE MONITORING
+===================================================== */
+
+async function updateMonitoring() {
+
+    try {
+
+        const response =
+            await fetch(
+                API_URL + "/monitoring?t=" +
+                Date.now()
+            );
+
+
+        if (!response.ok)
+            throw new Error();
+
+
+        const data =
+            await response.json();
+
+
+        document.getElementById(
+            "totalPredictions"
+        ).innerText =
+            data.total_predictions || 0;
+
+
+        document.getElementById(
+            "firePredictions"
+        ).innerText =
+            data.fire_predictions || 0;
+
+
+        document.getElementById(
+            "safePredictions"
+        ).innerText =
+            data.not_fire_predictions || 0;
+
+
+        document.getElementById(
+            "latency"
+        ).innerText =
+            (data.average_latency_ms || 0) +
+            " ms";
+
+
+        /*
+           Model agreement isn't currently
+           returned by /monitoring.
+           Keep it updated if API provides it.
+        */
+
+        if (
+            data.model_agreement_percent
+            !== undefined
+        ) {
+
+            document.getElementById(
+                "agreement"
+            ).innerText =
+                data.model_agreement_percent +
+                "%";
+        }
+
+
+        document.getElementById(
+            "telemetryTime"
+        ).innerText =
+            new Date().toLocaleTimeString();
+
+
+        document.getElementById(
+            "apiStatus"
+        ).innerText =
+            "● API ONLINE";
+
+
+        document.getElementById(
+            "apiStatus"
+        ).classList.remove(
+            "offline"
+        );
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Monitoring error:",
+            error
+        );
+
+        document.getElementById(
+            "apiStatus"
+        ).innerText =
+            "● API OFFLINE";
+
+        document.getElementById(
+            "apiStatus"
+        ).classList.add(
+            "offline"
+        );
+    }
+}
+
+
+/* =====================================================
+   ACTIVITY
+===================================================== */
+
+function addActivity(data) {
+
+    const container =
+        document.getElementById(
+            "activityList"
+        );
+
+
+    if (
+        container.innerText ===
+        "Waiting for live predictions..."
+    ) {
+
+        container.innerHTML = "";
+    }
+
+
+    const row =
+        document.createElement(
+            "div"
+        );
+
+
+    row.className =
+        "activity-row";
+
+
+    row.innerHTML = `
+
+        <span>
+            ${new Date().toLocaleTimeString()}
+        </span>
+
+        <span>
+            ${data.result}
+        </span>
+
+        <span>
+            ${data.fire_probability_percent}%
+        </span>
+
+        <span>
+            ${data.risk_level}
+        </span>
+
+    `;
+
+
+    container.prepend(row);
+
+
+    while (
+        container.children.length > 8
+    ) {
+
+        container.removeChild(
+            container.lastChild
+        );
+    }
+}
+
+
+/* =====================================================
+   START LIVE SYSTEM
+===================================================== */
+
+checkAPI();
+
+updateMonitoring();
+
+
+/*
+   Update telemetry every 2 seconds.
+*/
+
+setInterval(
+    updateMonitoring,
+    2000
+);
+
+
+/*
+   Check API more frequently.
+*/
+
+setInterval(
+    checkAPI,
+    5000
+);
+
+</script>
+
+</body>
+</html>
